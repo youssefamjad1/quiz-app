@@ -1,38 +1,40 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Global styles for body and html */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    min-height: 100vh; /* Ensure the gradient covers the full viewport height */
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Apply gradient globally */
+    font-family: Arial, sans-serif; /* Optional: Set a default font */
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  /* Ensure the Container takes up the full height */
+  .container-fluid {
+    flex-grow: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important; /* Center content vertically */
+    align-items: center !important; /* Center content horizontally */
   }
-  to {
-    transform: rotate(360deg);
+  
+  /* Styles for the question card */
+  .question-card {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
   }
-}
+  
+  /* Styles for the option buttons */
+  .option-button {
+    transition: all 0.3s ease;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+  
+  .option-button:hover {
+    background-color: white;
+    color: #6a11cb;
+    transform: scale(1.05);
+  }
