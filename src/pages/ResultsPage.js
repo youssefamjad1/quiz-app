@@ -15,7 +15,19 @@ const ResultsPage = () => {
     let score = 0;
     quizData.forEach((question) => {
       const correctAnswer = question.options.find((option) => option.is_correct);
-      if (selectedAnswers[question.id] === correctAnswer.description) {
+      const selectedAnswer = selectedAnswers[question.id];
+  
+      // Check if correctAnswer and selectedAnswer exist
+      if (!correctAnswer || !selectedAnswer) {
+        console.warn(`Missing data for question ID: ${question.id}`);
+        return; // Skip this question
+      }
+  
+      // Normalize both strings for comparison
+      const normalizedCorrectAnswer = correctAnswer.description.trim().toLowerCase();
+      const normalizedSelectedAnswer = selectedAnswer.trim().toLowerCase();
+  
+      if (normalizedSelectedAnswer === normalizedCorrectAnswer) {
         score += 1;
       }
     });
@@ -34,19 +46,11 @@ const ResultsPage = () => {
       <ResultCard score={score} totalQuestions={quizData.length} />
       <button
         onClick={handleTryAgain}
-        style={{
-          marginTop: '20px',
-          padding: '10px 20px',
-          fontSize: '16px',
-          cursor: 'pointer',
-          backgroundColor: '#007bff',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '5px',
-        }}
+        className="px-4 py-2 rounded-pill shadow-sm option-button"
       >
-        Try Again
-      </button>
+      Try Again
+    </button>
+
     </div>
   );
 };

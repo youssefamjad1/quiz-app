@@ -22,11 +22,14 @@ const QuizPage = () => {
   }, []);
 
   const handleAnswerSelect = (questionId, answer) => {
-    setSelectedAnswers({ ...selectedAnswers, [questionId]: answer });
+    const updatedAnswers = { ...selectedAnswers, [questionId]: answer };
+    setSelectedAnswers(updatedAnswers);
+  
     if (currentQuestionIndex < quizData.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      navigate('/results', { state: { selectedAnswers, quizData } });
+      // Ensure the last answer is saved before navigating
+      navigate('/results', { state: { selectedAnswers: updatedAnswers, quizData } });
     }
   };
 
