@@ -18,4 +18,4 @@ A web-based quiz application with gamification features.
 ![Results Page](screenshots/results.png)
 
 ## Video Walkthrough
-[Link to video walkthrough](#)
+https://tinyurl.com/5462twhs

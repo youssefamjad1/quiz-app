@@ -45,11 +45,12 @@ const ResultsPage = () => {
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
       <ResultCard score={score} totalQuestions={quizData.length} />
       <button
-        onClick={handleTryAgain}
-        className="px-4 py-2 rounded-pill shadow-sm option-button"
+       onClick={handleTryAgain}
+       className="btn btn-primary btn-lg rounded-pill shadow-sm px-4 py-2 fw-bold"
       >
-      Try Again
-    </button>
+     🔄 Try Again
+</button>
+
 
     </div>
   );
